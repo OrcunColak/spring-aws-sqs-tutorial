@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class SqsConsumer {
 
-    @SqsListener(value = "my-queue", pollTimeoutSeconds = "5")
+    @SqsListener(queueNames = "my-queue", pollTimeoutSeconds = "5")
     public void sqlListener(String message) {
         log.info("message received : {}", message);
     }

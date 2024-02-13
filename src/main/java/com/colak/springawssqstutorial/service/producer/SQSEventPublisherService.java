@@ -11,11 +11,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class SQSEventPublisherService {
 
+    public static final String DEFAULT_QUEUE_NAME = "my-queue";
+
     private final SqsTemplate sqsTemplate;
 
 
     public SendResult<String> publish(String message) {
-        return publish("my-queue", message);
+        return publish(DEFAULT_QUEUE_NAME, message);
     }
 
     public SendResult<String> publish(String queueName, String message) {
